@@ -1,5 +1,3 @@
-
-
 import urllib2
 import urllib
 import urllib
@@ -58,12 +56,10 @@ def tieba():
     itieba='http://tieba.baidu.com/f/like/mylike'
     rsp = opener.open(itieba).read().decode('gbk')
     
-    checkin_pattern = re.compile(r'<tr><td><a href="(.*?)title="(.*?)">(.*?)</a></td><td>')
-    checkin_result = checkin_pattern.findall(rsp)
+    tieba_pattern = re.compile(r'<tr><td><a href="(.*?)title="(.*?)">(.*?)</a></td><td>')
+    tieba_result = checkin_pattern.findall(rsp)
+  
 
-
-   
-
-    for item in checkin_result:
+    for item in tieba_result:
         print item[2]
 tieba()
